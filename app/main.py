@@ -11,7 +11,10 @@ def get_weather() -> None:
     response = requests.get(URL, params=PARAMS)
 
     data = response.json()
-    print(f"Current weather in {data['location']['name']}: {data['current']['temp_c']}°C")
+    current_location = data['location']['name']
+    current_temp = data['current']['temp_c']
+
+    print(f"Current weather in {current_location}: {current_temp}°C")
 
 
 if __name__ == "__main__":
